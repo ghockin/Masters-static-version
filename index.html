@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Scenario Simulation Tool</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="page-content">
+
+    <h1>Scenario Simulation Tool</h1>
+
+    <section class="scenario-form">
+
+        <h2>Create Scenario</h2>
+
+        <!-- Scenario Name -->
+        <div class="single-row">
+
+            <label for="scenarioName">
+                Scenario Name
+            </label>
+
+            <input
+                id="scenarioName"
+                type="text"
+                value="Atlantic Escape"
+            >
+
+        </div>
+
+        <!-- Ship Start -->
+        <div class="double-row">
+
+            <div class="input-group">
+
+                <label for="friendlyY">
+                    Ship Start Y (NM)
+                </label>
+
+                <input
+                    id="friendlyY"
+                    type="number"
+                    value="20"
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="friendlyX">
+                    Ship Start X (NM)
+                </label>
+
+                <input
+                    id="friendlyX"
+                    type="number"
+                    value="40"
+                >
+
+            </div>
+
+        </div>
+
+        <!-- Ship Speeds -->
+        <div class="double-row">
+
+            <div class="input-group">
+
+                <label for="shipSpeedMin">
+                    Ship Speed Min (Knots)
+                </label>
+
+                <input
+                    id="shipSpeedMin"
+                    type="number"
+                    value="20"
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="shipSpeedMax">
+                    Ship Speed Max (Knots)
+                </label>
+
+                <input
+                    id="shipSpeedMax"
+                    type="number"
+                    value="200"
+                >
+
+            </div>
+
+        </div>
+
+        <!-- Torpedo Start -->
+        <div class="double-row">
+
+            <div class="input-group">
+
+                <label for="enemyY">
+                    Torpedo Start Y (NM)
+                </label>
+
+                <input
+                    id="enemyY"
+                    type="number"
+                    value="0"
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="enemyX">
+                    Torpedo Start X (NM)
+                </label>
+
+                <input
+                    id="enemyX"
+                    type="number"
+                    value="0"
+                >
+
+            </div>
+
+        </div>
+
+        <!-- Torpedo Speed -->
+        <div class="single-row">
+
+            <label for="enemySpeed">
+                Torpedo Speed (Knots)
+            </label>
+
+            <input
+                id="enemySpeed"
+                type="number"
+                value="200"
+            >
+
+        </div>
+
+        <!-- Safe Zone -->
+        <div class="double-row">
+
+            <div class="input-group">
+
+                <label for="safeY">
+                    Safe Zone Y (NM)
+                </label>
+
+                <input
+                    id="safeY"
+                    type="number"
+                    value="50"
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="safeX">
+                    Safe Zone X (NM)
+                </label>
+
+                <input
+                    id="safeX"
+                    type="number"
+                    value="80"
+                >
+
+            </div>
+
+        </div>
+
+        <button onclick="createSpeedRuns()">
+            Create Speed Runs
+        </button>
+
+    </section>
+
+    <!-- Speed Simulations -->
+    <section id="speedRuns"></section>
+
+    <!-- Controls -->
+    <section class="controls">
+
+        <button onclick="playSimulation()">
+            Play
+        </button>
+
+        <button onclick="pauseSimulation()">
+            Pause
+        </button>
+
+        <button onclick="resetSimulation()">
+            Reset
+        </button>
+
+        <button onclick="downloadLogs()">
+            Export Logs
+        </button>
+
+    </section>
+
+    <!-- Active Simulation -->
+    <h2 id="active-simulation">
+        Active Simulation: None
+    </h2>
+
+    <!-- Tick Counter -->
+    <h2 id="tick">
+        Minutes passed: 0
+    </h2>
+
+    <!-- Status -->
+    <div id="status"></div>
+
+    <!-- Bottom Layout -->
+    <div class="simulation-layout">
+
+        <!-- Messages -->
+        <div class="message-panel">
+
+            <h3>Simulation Messages</h3>
+
+            <div id="message-log"></div>
+
+        </div>
+
+        <!-- Sea -->
+        <div id="sea" class="sea-area"></div>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
